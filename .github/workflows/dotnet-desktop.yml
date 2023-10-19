@@ -10,10 +10,6 @@ jobs:
   build:
     runs-on: windows-latest
 
-    env:
-      Solution_Name: ConsoleApp1.sln                 
-      Test_Project_Path: .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj      
-
     steps:
     - name: Checkout
       uses: actions/checkout@v3
