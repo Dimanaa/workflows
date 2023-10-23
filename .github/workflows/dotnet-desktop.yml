@@ -25,7 +25,9 @@ jobs:
         dotnet-version: 6.0.x
         
     - name: Install Firebase CLI
-      run: npm install -g firebase-tools
+      run: |
+           npm install -g firebase-tools
+           firebase init 
 
     - name: Deploy to Firebase Hosting
       run: |
