@@ -27,8 +27,9 @@ jobs:
     - name: Install Firebase CLI
       run: |
            npm install -g firebase-tools
-           firebase init hosting
-           firebase login:ci
+           firebase init hosting        
+           firebase deploy --token "$FIREBASE_CLI_TOKEN"
+           firebase login
 
     - name: Deploy to Firebase Hosting
       run: |
