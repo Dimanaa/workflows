@@ -32,8 +32,8 @@ jobs:
 
     - name: Deploy to Firebase Hosting
       run: |
-          firebase use --token ${{ secrets.FIREBASE_TOKEN }}
-          firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
+          firebase use --token ${{ secrets.FIREBASE_CLI_TOKEN }}
+          firebase deploy --only hosting --token ${{ secrets.FIREBASE_CLI_TOKEN }}
         
     - name: Build and Test
       run: |
