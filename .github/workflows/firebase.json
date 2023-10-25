@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",  // Directory containing your static assets
+    "public": "public", 
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }
