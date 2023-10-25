@@ -26,15 +26,18 @@ jobs:
         
     - name: Install Firebase CLI
       run: npm install -g firebase-tools
-
-    - name: Deploy to Firebase Hosting
-      run: |
-          firebase use --token ${{ secrets.FIREBASE_CLI_TOKEN }}
-          firebase deploy --only hosting 
         
     - name: Build and Test
       run: |
           dotnet restore .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
           dotnet build .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
           dotnet test .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
+    
+    - name: Deploy Executable to Firebase Storage
+      run: |
+         firebase use --add workflows-7be96:workflows-7be96.appspot.com
+         firebase deploy --only storage
+         firebase storage:upload bin/ConsoleApp1.exe
+
+          
       
