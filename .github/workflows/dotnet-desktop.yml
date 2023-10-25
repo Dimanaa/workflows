@@ -35,6 +35,7 @@ jobs:
     
     - name: Deploy Executable to Firebase Storage
       run: |
+         cd workflows/.github/workflows
          firebase init
          firebase use --add workflows-7be96:workflows-7be96.appspot.com --token ${{ secrets.FIREBASE_CLI_TOKEN }}
          firebase deploy --only storage
