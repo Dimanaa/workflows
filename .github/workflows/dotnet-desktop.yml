@@ -36,7 +36,7 @@ jobs:
     - name: Deploy Executable to Firebase Storage
       run: |
          firebase init
-         firebase use --add workflows-7be96:workflows-7be96.appspot.com
+         firebase use --add workflows-7be96:workflows-7be96.appspot.com --token ${{ secrets.FIREBASE_CLI_TOKEN }}
          firebase deploy --only storage
          firebase storage:upload bin/ConsoleApp1.exe
 
