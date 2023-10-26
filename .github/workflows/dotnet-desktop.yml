@@ -36,9 +36,8 @@ jobs:
     - name: Deploy Executable to Firebase Storage
       run: |
          cd .github/workflows
-         firebase init
          firebase use --add workflows-7be96 --token ${{ secrets.FIREBASE_CLI_TOKEN }}
-         firebase storage:upload ConsoleApp1/ConsoleApp1/bin/Debug/ConsoleApp1.exe
+         #firebase storage:upload ConsoleApp1/ConsoleApp1/bin/Debug/ConsoleApp1.exe
 
           
       
