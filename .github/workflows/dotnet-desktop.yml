@@ -37,7 +37,7 @@ jobs:
       run: |
          cd .github/workflows
          firebase use --add workflows-7be96 --token ${{ secrets.FIREBASE_CLI_TOKEN }}
-         firebase deploy --only storage
+         firebase deploy --only storage --token ${{ secrets.FIREBASE_CLI_TOKEN }}
 
           
       
