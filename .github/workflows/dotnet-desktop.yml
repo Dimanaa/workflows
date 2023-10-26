@@ -37,9 +37,8 @@ jobs:
       run: |
          cd .github/workflows
          firebase init
-         firebase use --add workflows-7be96:workflows-7be96.appspot.com --token ${{ secrets.FIREBASE_CLI_TOKEN }}
-         firebase deploy --only storage
-         firebase storage:upload bin/ConsoleApp1.exe
+         firebase use --add workflows-7be96 --token ${{ secrets.FIREBASE_CLI_TOKEN }}
+         firebase storage:upload ConsoleApp1/ConsoleApp1/bin/Debug/ConsoleApp1.exe
 
           
       
