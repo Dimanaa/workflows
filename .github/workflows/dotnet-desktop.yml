@@ -39,5 +39,11 @@ jobs:
          firebase use --add workflows-7be96 --token ${{ secrets.FIREBASE_CLI_TOKEN }}
          firebase deploy --only storage --token ${{ secrets.FIREBASE_CLI_TOKEN }}
 
+    - name: Run PS script to Upload to Firebase Storage     
+      run: |
+        powershell
+         # Run the PowerShell script from an external file
+         .\artifact_upload.ps1
+
           
       
