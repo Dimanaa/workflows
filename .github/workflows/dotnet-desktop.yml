@@ -43,7 +43,7 @@ jobs:
       run: |
         powershell
          # Run the PowerShell script from an external file
-         .\artifact_upload.ps1
+         .github/workflows/artifact_upload.ps1
 
           
       
