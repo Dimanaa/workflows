@@ -3,9 +3,6 @@ $storageBucket = "workflows-7be96.appspot.com"
 $localFilePath = ".github/workflows/ConsoleApp1/ConsoleApp1/bin/Debug/ConsoleApp1.exe" 
 $firebaseToken = "1//09to3euoMz1AXCgYIARAAGAkSNwF-L9IrArQ7OBc1ysGme50KRI_fcaO_yLPp1ZkLVpzOnAqhbF58Y6MKYmw54CqnxQ4F2CmNvpM"
 
-# Set Firebase project and access token
-firebase login:ci
-
 # Function to upload file to Firebase Cloud Storage
 function UploadToFirebaseStorage {
     param (
