@@ -1,6 +1,6 @@
 $storageBucket = "workflows-7be96.appspot.com"
-$localFilePath = ".github/workflows/ConsoleApp1/ConsoleApp1/bin/Debug/test.txt" 
-$firebaseToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImlhdCI6MTY5OTAxNzM2MiwiZXhwIjoxNjk5MDIwOTYyLCJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1nNmxib0B3b3JrZmxvd3MtN2JlOTYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1nNmxib0B3b3JrZmxvd3MtN2JlOTYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJ1aWQiOiJmaXJlYmFzZS1hZG1pbnNkay1nNmxib0B3b3JrZmxvd3MtN2JlOTYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20ifQ.j7plO3w8r03DoWbIOe13E6_zKExTd4QZBzHVcDsqEgps7suOv0oSzsepPTqU0iKCpmHoVkqWqOITc6XBe0JjUsvdRfrXajWdh7UDbEIvBrV6Sx4fIqPHIDTKAIsai9j7WYN67DrI_ZT4vuRAxR609Wvq_N2OPzyOnKZ-p4Luk3WDQuzc-nIk1XM9mLnfvofqQgA9X9Og8_T_Ph19MMCRP5MJkAtWwJeQgapHtRnoZEF2thID3qzBnCuDSUGOTNRdGyTwhqR0URF02XllzN3_kNjbSga5CerTSryEdGNJZ-598ERGqsLtl6fGxgj1pZFbBBF1PWiK2EcoP9fuSO49TQ"
+$localFilePath = "ConsoleApp1/ConsoleApp1/bin/Debug/test.txt" 
+$firebaseToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImlhdCI6MTY5OTI3NzU1MywiZXhwIjoxNjk5MjgxMTUzLCJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1nNmxib0B3b3JrZmxvd3MtN2JlOTYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1nNmxib0B3b3JrZmxvd3MtN2JlOTYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJ1aWQiOiJmaXJlYmFzZS1hZG1pbnNkay1nNmxib0B3b3JrZmxvd3MtN2JlOTYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20ifQ.U8krvZ1XxB2SmVd3F390UZbnEjm7lGjV6WrVX_xbILKKynDjWmVIzqrqVUFbAWg0KbDcdesnayJmwuDF0-R7E3RxHxhaJG3VzdeAV95v4YT5RidaiDfcy_iwWOOYX-FUNb4YvneN0ti0du7NHOvspS6pI1Ia00NsVvAf6c4w78g_GBrE5wds7VgO69qj30bUk3qE7Gsb7_QMm_fu_IkuDqHE3Zzt6BtQEJ3yGq6yETlJ1RF3n3JePKIZOFpv41UAFbp8pnrZD29thonSkbO_VaC6tjwmTOq2Osa77y1g2TnQQJcTepLz085K54J_Rzah1p7V3NovCZUm-w1-dlsokQ"
 
 # Function to upload file to Firebase Cloud Storage
 function UploadToFirebaseStorage {
@@ -18,18 +18,20 @@ function UploadToFirebaseStorage {
     # Create Authorization header with the Firebase token
     $headers = @{
         "Authorization" = "Bearer $firebaseToken"
+        "Content-Type" = "text/plain"
     }
 
     # Read file content
-    $fileBytes = [System.IO.File]::ReadAllBytes($localFilePath)
-    $fileBase64 = [Convert]::ToBase64String($fileBytes)
+    #$fileBytes = [System.IO.File]::ReadAllBytes($localFilePath)
+    #$fileBase64 = [Convert]::ToBase64String($fileBytes)
+    $fileContent = Get-Content -Path $localFilePath
+    Write-Host $fileContent
 
     # JSON body for the upload request
     $body = @{
         "name" = $fileName
-        "contentType" = "text/plain"
-        "data" = $fileBase64
-    } | ConvertTo-Json
+        "data" = $fileContent -join [Environment]::NewLine
+        } | ConvertTo-Json
 
     try {
         # Send request to Firebase Storage API for file upload
