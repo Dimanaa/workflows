@@ -1,5 +1,5 @@
 $storageBucket = "workflows-7be96.appspot.com"
-$localFilePath = "ConsoleApp1/ConsoleApp1/bin/Debug/test.txt" 
+$localFilePath = ".github/workflows/ConsoleApp1/ConsoleApp1/bin/Debug/test.txt" 
 $apiKey = "AIzaSyAd68DduAkzZiq3GX0QJhiDyHXbaGMknu8"
 $userEmail = "dist@milestone.dk"
 $userPassword = "test11"
