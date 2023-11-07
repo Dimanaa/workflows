@@ -18,9 +18,6 @@ $response = Invoke-RestMethod -Uri $endpoint -Method Post -ContentType "applicat
 # Extract the idToken
 $idToken = $response.idToken
 
-# Display the response 
-Write-Output $response
-
 # Function to upload file to Firebase Cloud Storage
 function UploadToFirebaseStorage {
     param (
