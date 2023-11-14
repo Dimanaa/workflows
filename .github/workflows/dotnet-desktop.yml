@@ -56,7 +56,7 @@ jobs:
     - name: Build and Push Docker Image
       run: |
           docker build -t docker.io/dimanaa/test:latest .
-          docker push docker.io/dimanaa/test:latest
+          docker push docker.io/dimanaa/test:latest 
 
 
           
