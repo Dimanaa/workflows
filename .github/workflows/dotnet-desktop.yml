@@ -32,7 +32,13 @@ jobs:
           dotnet restore .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
           dotnet build .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
           dotnet test .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
-    
+
+    - name: Upload Artifact Directory
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: .github/workflows/ConsoleApp1/**/* # or path/to/artifact
+
     # - name: Deploy Executable to Firebase Storage
     #   run: |
     #      cd .github/workflows
@@ -52,6 +58,11 @@ jobs:
     steps:
     - name: Login to Docker Registry
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin docker.io/dimanaa
+
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
 
     - name: Build Docker Image
       run:  |
