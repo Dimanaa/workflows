@@ -55,6 +55,7 @@ jobs:
 
     - name: Build Docker Image
       run:  |
+          pwd
           cd .github/workflows/ConsoleApp1/ConsoleApp1
           docker build -t workflows-image -f Dockerfile .
 
