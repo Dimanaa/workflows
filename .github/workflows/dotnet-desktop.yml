@@ -27,11 +27,11 @@ jobs:
     # - name: Install Firebase CLI
     #   run: npm install -g firebase-tools
         
-    # - name: Build and Test
-    #   run: |
-    #       dotnet restore .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
-    #       dotnet build .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
-    #       dotnet test .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
+    - name: Build and Test
+      run: |
+          dotnet restore .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
+          dotnet build .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
+          dotnet test .github/workflows/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
     
     # - name: Deploy Executable to Firebase Storage
     #   run: |
@@ -54,7 +54,9 @@ jobs:
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin docker.io/dimanaa
 
     - name: Build Docker Image
-      run: docker build -t workflows-image -f ConsoleApp1/ConsoleApp1/Dockerfile .
+      run:  |
+          cd .github/workflows/ConsoleApp1/ConsoleApp1
+          docker build -t workflows-image -f Dockerfile .
 
     - name: Push Docker Image
       run: push docker.io/dimanaa/workflows-image:latest
