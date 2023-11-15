@@ -54,7 +54,7 @@ jobs:
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin docker.io/dimanaa
 
     - name: Build Docker Image
-      run: docker build -t workflows-image -f ./ConsoleApp1/ConsoleApp1/Dockerfile .
+      run: docker build -t workflows-image -f ConsoleApp1/ConsoleApp1/Dockerfile .
 
     - name: Push Docker Image
       run: push docker.io/dimanaa/workflows-image:latest
