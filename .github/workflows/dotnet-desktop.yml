@@ -68,7 +68,7 @@ jobs:
       run:  |
           pwd
           ls -a
-          cd .github/workflows/ConsoleApp1/ConsoleApp1
+          cd ./ConsoleApp1
           docker build -t workflows-image -f Dockerfile .
 
     - name: Push Docker Image
