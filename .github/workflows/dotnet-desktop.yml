@@ -72,6 +72,7 @@ jobs:
 
     - name: Push Docker Image
       run: |
+          cd ./ConsoleApp1
           ls -al
           docker push docker.io/dimanaa/workflows-image:latest
 
