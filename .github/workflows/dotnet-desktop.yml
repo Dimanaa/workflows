@@ -66,12 +66,13 @@ jobs:
 
     - name: Build Docker Image
       run:  |
-          ls -al
           cd ./ConsoleApp1
           docker build -t workflows-image:latest -f Dockerfile .
 
     - name: Push Docker Image
-      run: docker push docker.io/dimanaa/workflows-image:latest
+      run: 
+        ls -al
+        docker push docker.io/dimanaa/workflows-image:latest
 
 
           
