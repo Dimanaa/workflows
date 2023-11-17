@@ -73,7 +73,7 @@ jobs:
       run: |
           cd ./ConsoleApp1
           ls -al
-          docker build -t workflows:latest -f Dockerfile .
+          docker build -t dimanaa/workflows:latest -f Dockerfile .
 
     - name: Push Docker Image
       run: |
