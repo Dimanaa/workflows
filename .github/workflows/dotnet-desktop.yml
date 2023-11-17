@@ -65,8 +65,9 @@ jobs:
         name: my-artifact
 
     - name: Build Docker Image
-      run:  |
-          cd ./ConsoleApp1
+      run: |
+          cd ./ConsoleApp1/ConsoleApp1
+          ls -al
           docker build -t workflows-image:latest -f Dockerfile .
 
     - name: Push Docker Image
