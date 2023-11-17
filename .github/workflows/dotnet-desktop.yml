@@ -70,9 +70,9 @@ jobs:
           docker build -t workflows-image:latest -f Dockerfile .
 
     - name: Push Docker Image
-      run: 
-        ls -al
-        docker push docker.io/dimanaa/workflows-image:latest
+      run: |
+          ls -al
+          docker push docker.io/dimanaa/workflows-image:latest
 
 
           
