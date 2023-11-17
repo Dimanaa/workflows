@@ -24,8 +24,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
         
-    # - name: Install Firebase CLI
-    #   run: npm install -g firebase-tools
+    - name: Install Firebase CLI
+      run: npm install -g firebase-tools
         
     - name: Build and Test
       run: |
@@ -37,19 +37,19 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact
-        path: .github/workflows/ConsoleApp1/**/* # or path/to/artifact
+        path: .github/workflows/ConsoleApp1/**/*
 
-    # - name: Deploy Executable to Firebase Storage
-    #   run: |
-    #      cd .github/workflows
-    #      firebase use --add workflows-7be96 --token ${{ secrets.FIREBASE_CLI_TOKEN }}
-    #      firebase deploy --only storage --token ${{ secrets.FIREBASE_CLI_TOKEN }}
+    - name: Deploy Executable to Firebase Storage
+      run: |
+         cd .github/workflows
+         firebase use --add workflows-7be96 --token ${{ secrets.FIREBASE_CLI_TOKEN }}
+         firebase deploy --only storage --token ${{ secrets.FIREBASE_CLI_TOKEN }}
 
-    # - name: Run PS script to Upload to Firebase Storage     
-    #   run: |
-    #     powershell
-    #      # Run the PowerShell script from an external file
-    #      .github/workflows/artifact_upload.ps1
+    - name: Run PS script to Upload to Firebase Storage     
+      run: |
+        powershell
+         # Run the PowerShell script from an external file
+         .github/workflows/artifact_upload.ps1
 
   docker:
     runs-on: ubuntu-latest
