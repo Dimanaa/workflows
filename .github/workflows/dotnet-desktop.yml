@@ -79,7 +79,7 @@ jobs:
       run: |
           cd ./ConsoleApp1
           ls -al
-          docker push docker.io/library/workflows-image:latest
+          docker push docker.io/dimanaa/workflows:latest
 
 
           
