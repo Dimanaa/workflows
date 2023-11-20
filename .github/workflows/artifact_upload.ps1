@@ -1,8 +1,8 @@
 $storageBucket = "workflows-7be96.appspot.com"
 $localFilePath = ".github/workflows/ConsoleApp1/ConsoleApp1/bin/Debug/test.txt" 
-$apiKey:FIREBASE_API_KEY
-$userEmail:FIREBASE_USER_EMAIL
-$userPassword:FIREBASE_USER_PASSWORD
+$apiKey
+$userEmail
+$userPassword
 $endpoint = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=$apiKey"
 
 # JSON body for the request
