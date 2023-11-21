@@ -12,15 +12,7 @@ $requestBody = @{
     returnSecureToken = $true
 } | ConvertTo-Json
 
-Write-Host "Endpoint: $endpoint"
-Write-Host "Request Body: $requestBody"
-
-try {
-    $response = Invoke-RestMethod -Uri $endpoint -Method Post -ContentType "application/json" -Body $requestBody
-} catch {
-    Write-Host "Error: $($_.Exception.Message)"
-    exit 1
-}
+$response = Invoke-RestMethod -Uri $endpoint -Method Post -ContentType "application/json" -Body $requestBody
 
 # Extract the idToken
 $idToken = $response.idToken
