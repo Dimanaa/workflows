@@ -1,5 +1,5 @@
 $storageBucket = "workflows-7be96.appspot.com"
-$localFilePath = ".github/workflows/ConsoleApp1/ConsoleApp1/bin/Debug/test.txt" 
+$localFilePath = ".github/workflows/ConsoleApp1/ConsoleApp1/bin/Debug/ReadMe.txt" 
 
 # Accessing environment variables in PowerShell
 $apiKey = $env:FIREBASE_API_KEY

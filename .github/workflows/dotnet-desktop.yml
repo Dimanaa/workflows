@@ -39,7 +39,7 @@ jobs:
         name: my-artifact
         path: .github/workflows/ConsoleApp1/**/*
 
-    - name: Deploy Executable to Firebase Storage
+    - name: Firebase authentication and storage specification
       run: |
          cd .github/workflows
          firebase use --add workflows-7be96 --token ${{ secrets.FIREBASE_CLI_TOKEN }}
@@ -65,7 +65,6 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: docker.io
-    
 
     - name: Download artifact
       uses: actions/download-artifact@v3
